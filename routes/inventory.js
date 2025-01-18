@@ -1,13 +1,18 @@
+/*
+    Исходный код, полностью бесплатный.
+    По всем вопросам: https://t.me/cs_041
+*/
+
+
 const { User } = require('../database/index');
 const { settings } = require('../routes/utils');
 
 async function updateInventory(req, res) {
     try {
-        const id = 1; // ID пользователя, заменить на токены!!!
-        const { hat, mask, gloves, shirt, pants, boots, backpack, other, head } = req.query;
+        const { ccid, hat, mask, gloves, shirt, pants, boots, backpack, other, head } = req.query;
 
         // Находим пользователя
-        const user = await User.findOne({ where: { id: id } });
+        const user = await User.findOne({ where: { ccid: ccid } });
         if (!user) {
             return res.status(200).json({ result: false, message: 'User not found' });
         }
@@ -47,7 +52,7 @@ async function updateInventory(req, res) {
         Object.assign(view, numericItemsToCheck); // Обновляем view
         
         // Сохраняем изменения
-        await User.update({ view: JSON.stringify(view) }, { where: { id: id } });
+        await User.update({ view: JSON.stringify(view) }, { where: { id: user.id } });
         
         return res.status(200).json({ result: true, message: 'View updated successfully' });
     } catch (error) {
@@ -59,10 +64,10 @@ async function updateInventory(req, res) {
 async function updateWeapon(req, res) {
     try {
         const id = 1; // ID пользователя, заменить на токены!!!
-        const { i1, i2, i3, i4, i5, i6, i7 } = req.query;
+        const { ccid, i1, i2, i3, i4, i5, i6, i7 } = req.query;
 
         // Находим пользователя
-        const user = await User.findOne({ where: { id: id } });
+        const user = await User.findOne({ where: { ccid: ccid } });
         if (!user) {
             return res.status(200).json({ result: false, message: 'User not found' });
         }
@@ -97,7 +102,7 @@ async function updateWeapon(req, res) {
         });
 
         // Сохраняем изменения
-        await User.update({ weap: JSON.stringify(weap) }, { where: { id: id } });
+        await User.update({ weap: JSON.stringify(weap) }, { where: { id: user.id } });
 
         return res.status(200).json({ result: true, message: 'Weapon data updated successfully' });
     } catch (error) {
@@ -108,3 +113,8 @@ async function updateWeapon(req, res) {
 
 
 module.exports = { updateInventory, updateWeapon };
+
+/*
+    Исходный код, полностью бесплатный.
+    По всем вопросам: https://t.me/cs_041
+*/

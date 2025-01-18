@@ -1,11 +1,15 @@
+/*
+    Исходный код, полностью бесплатный.
+    По всем вопросам: https://t.me/cs_041
+*/
+
 const { User } = require('../database/index');
 const { settings } = require('../routes/utils');
 
 async function changeNickname( req, res ) {
     try {
-        const { ve } = req.query;
-        const u_id = 1;
-        const user = await User.findOne({ where: { id: u_id } });
+        const { ccid, ve } = req.query;
+        const user = await User.findOne({ where: { ccid: ccid } });
 
         if (!user) {
             return res.status(200).json({ result: false, message: 'Player not found' });
@@ -57,9 +61,8 @@ async function changeNickname( req, res ) {
 
 async function onPlayerBuyCloth( req, res, itype ) {
     try {
-        const { id } = req.query;
-        const u_id = 1;
-        const user = await User.findOne({ where: { id: u_id } });
+        const { ccid, id } = req.query;
+        const user = await User.findOne({ where: { ccid: ccid } });
 
         if (!user) {
             return res.status(200).json({ result: false });
@@ -108,7 +111,7 @@ async function onPlayerBuyCloth( req, res, itype ) {
                         vcur: user.vcur - shop_cost,
                         inventory: JSON.stringify(currentInventory)
                     },
-                    { where: { id: u_id } }
+                    { where: { id: user.id } }
                 );
         
                 return res.status(200).json({ result: true, message: 'Item purchased successfully' });
@@ -124,11 +127,9 @@ async function onPlayerBuyCloth( req, res, itype ) {
 // трен. зал
 async function giveBabil(req, res) {
     try {
-        const { id } = req.query;
+        const { ccid, id } = req.query;
+        const user = await User.findOne({ where: { ccid: ccid } });
 
-        const u_id = 1;
-
-        const user = await User.findOne({ where: { id: u_id } });
         if (!user) {
             return res.status(404).json({ result: false, message: 'User not found' });
         }
@@ -201,3 +202,8 @@ async function updateUserAbilities(user, babil, cost) {
 
 
 module.exports = { onPlayerBuyCloth, giveBabil, changeNickname };
+
+/*
+    Исходный код, полностью бесплатный.
+    По всем вопросам: https://t.me/cs_041
+*/

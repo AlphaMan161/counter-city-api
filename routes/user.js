@@ -1,3 +1,8 @@
+/*
+    Исходный код, полностью бесплатный.
+    По всем вопросам: https://t.me/cs_041
+*/
+
 const express = require('express');
 const router = express.Router();
 const path = require('path');
@@ -9,7 +14,7 @@ const { updateInventory, updateWeapon } = require('../routes/inventory');
         
 router.get('/ajax.php', async (req, res) => {
     try {
-        const { page, act, action } = req.query;
+        const { ccid, page, act, action } = req.query;
 
         if (page === 'assets') {
             const filePath = path.join(__dirname, 'Files', 'CharacterData.unity3d');
@@ -21,13 +26,11 @@ router.get('/ajax.php', async (req, res) => {
             });
         }
 
-        console.log(page)
-
         if (!page) {
             return res.status(400).json({ error: 'Неверные параметры запроса' });
         }
 
-        const user = await User.findOne({ where: { id: 1 } });
+        const user = await User.findOne({ where: { ccid: ccid } });
 
         switch (page) {
             case 'auth':
@@ -83,6 +86,7 @@ router.get('/ajax.php', async (req, res) => {
                         const newUser = await User.create({
                             vcur: 100,
                             lvl: 1,
+                            ccid: ccid,
                             inventory: JSON.stringify([]),
                             babil: JSON.stringify([]),
                             weap: JSON.stringify(default_weap),
@@ -108,7 +112,7 @@ router.get('/ajax.php', async (req, res) => {
                             weap: JSON.parse(newUser.weap),
                             sA: [],
                             taun: [],
-                            dR: [{ uid: "13968485", d: { d: 1, vcur: 5 }, i: "1", et: "11" }],
+                          //  dR: [{ uid: "13968485", d: { d: 1, vcur: 5 }, i: "1", et: "11" }],
                             conf: []
                         });
                     }
@@ -131,7 +135,7 @@ router.get('/ajax.php', async (req, res) => {
                         weap: JSON.parse(user.weap),
                         sA: [],
                         taun: [],
-                        dR: [{ uid: "13968485", d: { d: 1, vcur: 5 }, i: "1", et: "11" }],
+                      //  dR: [{ uid: "13968485", d: { d: 1, vcur: 5 }, i: "1", et: "11" }],
                         conf: []
                     });
                 }
@@ -139,10 +143,11 @@ router.get('/ajax.php', async (req, res) => {
                     return res.status(200).json({
                         result: true,
                         data: {
-                            items: JSON.parse(user.inventory),
+                            items: user.inventory,
                             dw: settings('data/default.json', 'weapon')
                         }
                     });
+                                      
                 }
                 if (act === 'ach') {
                     return res.status(200).json({
@@ -158,7 +163,28 @@ router.get('/ajax.php', async (req, res) => {
                     return res.status(200).json({ result: true, b: settings("shop.json", "abils"), u: JSON.parse(user.babil)  });
                 }
                 if (act === 'map') {
-                    return res.status(200).json({ result: true });
+                    return res.status(200).json({ result: true, s: [
+                        {
+                            "h": "127.0.0.1",
+                            "p": "8080,9090",
+                            "n": "ServerName",
+                            "pL": 1,
+                            "lM": 2,
+                            "lMa": 1,
+                            "m": 1,
+                            "iD": 1
+                        },
+                        {
+                            "h": "192.168.0.1",
+                            "p": "3000,4000",
+                            "n": "AnotherServer",
+                            "pL": 1,
+                            "lM": 2,
+                            "lMa": 1,
+                            "m": 0,
+                            "iD": 0
+                        }
+                    ]});
                 }
                 if (act === 'sview') {
                     return updateInventory( req, res );
@@ -192,7 +218,6 @@ router.get('/ajax.php', async (req, res) => {
                 break;
         }
 
-        // Если запрос не обработан
         return res.status(200).json({ result: false });
     } catch (error) {
         console.error(error.message);
@@ -202,3 +227,9 @@ router.get('/ajax.php', async (req, res) => {
 
 
 module.exports = router;
+
+
+/*
+    Исходный код, полностью бесплатный.
+    По всем вопросам: https://t.me/cs_041
+*/

@@ -13,10 +13,10 @@ module.exports = function (sequelize) {
             defaultValue: '',
             allowNull: true,
         },
-        admin: {
-            type: DataTypes.BOOLEAN,
-            defaultValue: false,
-            allowNull: false
+        ccid: {
+            type: DataTypes.TEXT,
+          //  defaultValue: '',
+            allowNull: false,
         },
         vcur: {
             type: DataTypes.INTEGER,

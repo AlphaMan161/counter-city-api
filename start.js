@@ -1,3 +1,8 @@
+/*
+    Исходный код, полностью бесплатный.
+    По всем вопросам: https://t.me/cs_041
+*/
+
 require("dotenv/config");
 
 const { startWebServer } = require('./web')
