@@ -8,7 +8,7 @@
    - Скачайте и установите с [официального сайта](https://nodejs.org/).
       
 2. **XAMPP-сервер**  
-   - Установите XAMPP-сервер, официальный сайт: [официального сайта](https://www.apachefriends.org/download.html)
+   - Скачайте и установите XAMPP-сервер с [официального сайта](https://www.apachefriends.org/download.html)
    - Запускаем xampp-control.exe.
    - Нажимаем START на Apache, MYSQL.
      
