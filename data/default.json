@@ -1,0 +1,165 @@
+{
+    "inventory": [
+        {
+            "w_id": 1,
+            "wt": 1,
+            "sname": "capVKKS03",
+            "nlvl": 100,
+            "sc_id": 1,
+            "itype": 3
+        },
+
+        {
+            "w_id": 2,
+            "wt": 2,
+            "sname": "bandB04",
+            "nlvl": 100,
+            "sc_id": 2,
+            "itype": 3
+        },
+
+        {
+            "w_id": 3,
+            "wt": 3,
+            "sname": "avenger",
+            "nlvl": 100,
+            "sc_id": 3,
+            "itype": 3
+        },
+
+        {
+            "w_id": 4,
+            "wt": 4,
+            "sname": "chood03",
+            "nlvl": 100,
+            "sc_id": 4,
+            "itype": 3
+        },
+
+        {
+            "w_id": 5,
+            "wt": 5,
+            "sname": "sportVKKS03",
+            "nlvl": 100,
+            "sc_id": 5,
+            "itype": 3
+        },
+
+        {
+            "w_id": 6,
+            "wt": 6,
+            "sname": "thanos",
+            "nlvl": 100,
+            "sc_id": 6,
+            "itype": 3
+        },
+
+        {
+            "w_id": 7,
+            "wt": 7,
+            "sname": "Morte",
+            "nlvl": 100,
+            "sc_id": 7,
+            "itype": 3
+        },
+
+        {
+            "w_id": 8,
+            "wt": 8,
+            "sname": "medalgold",
+            "nlvl": 100,
+            "sc_id": 8,
+            "itype": 3
+        },
+
+        {
+            "w_id": 9,
+            "wt": 9,
+            "sname": "thanos",
+            "nlvl": 100,
+            "sc_id": 9,
+            "itype": 3
+        },
+
+        {
+            "w_id": 1,
+            "wt": 1,
+            "ws": 1,
+            "sname": "OHCA_BasebalBat",
+            "itype": 1
+        }
+    ],
+
+    "data_weap": {
+        "id1": 0,
+        "id2": 0,
+        "id3": 0,
+        "id4": 0,
+        "id5": 0,
+        "id6": 0,
+        "id7": 0
+    },
+
+    "data_view": {
+        "hat": 0,
+        "head": 0,
+        "mask": 0,
+        "gloves": 0,
+        "shirt": 0,
+        "pants": 0,
+        "boots": 0,
+        "backpack": 0,
+        "other": 0
+    },
+
+    "weapon": [
+        {
+            "w_id": 1,
+            "wt": 1,
+            "ws": 1,
+            "sname": "OHCA_BasebalBat"
+        },
+
+        {
+            "w_id": 2,
+            "wt": 3,
+            "ws": 2,
+            "sname": "HG_Makarov"
+        },
+
+        {
+            "w_id": 3,
+            "wt": 4,
+            "ws": 3,
+            "sname": "MG_AK47"
+        },
+
+        {
+            "w_id": 4,
+            "wt": 6,
+            "ws": 4,
+            "sname": "GG_M134"
+        },
+
+        {
+            "w_id": 5,
+            "wt": 7,
+            "ws": 5,
+            "sname": "SG_Winchester1887"
+        },
+
+        {
+            "w_id": 6,
+            "wt": 8,
+            "ws": 6,
+            "sname": "RL_RPG26"
+        },
+
+        {
+            "w_id": 7,
+            "wt": 10,
+            "ws": 7,
+            "sname": "SR_SVD"
+        }
+    ]
+}
