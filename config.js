@@ -13,8 +13,8 @@ const devConfig = {
     api: {
         port: 5000,
         domains: {
-            https: 'https://zephvpn.ru',
-            hclear: 'zephvpn.ru',
+            https: 'https://',
+            hclear: '',
         },
     },
 };
